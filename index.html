@@ -184,117 +184,147 @@
 			data-delay="2000"
 			data-ease="easeOutExpo"
 			data-duration="1200"
-			data-effect="scale(1.5,1.6)"> En savoir plus </a> 
-            
-    </div>
-
-    
+			data-effect="scale(1.5,1.6)"> En savoir plus </a>        
+    </div> 
 </div>
-<div class="clearfix"></div>  
-  <section class="property-search">
+<div class="clearfix"></div> 
 
-        <div class="col-md-3 col-sm-6">
-          <label>Nom complet</label>
-          <input type="text" placeholder="Nom" value="" name="name">
-        </div>
 
-        
-        <div class="col-md-3 col-sm-6">
-          <label>Localisation</label>
-          <select>
-            <option value="" selected="selected">Tous</option>
-            <option value="centre-ville">Centre-ville</option>
-            <option value="poto-poto">Poto-Poto</option>
-            <option value="makélékélé">Makélékélé</option>
-            <option value="bacongo">Bacongo</option>
-            <option value="ouenzé">Ouenzé</option>
-            <option value="talangaï">Talangaï</option>
-            <option value="mfilou">Mfilou</option>
-            <option value="moungali">Moungali</option>
-            <option value="djiri">Djiri</option>
-            <option value="mayanga">Mayanga</option>
-            <option value="kintélé">Kintélé</option>
-            <option value="mpila">Mpila</option>
-            <option value="makabandilou">Makabandilou</option>
-            <option value="ngamakosso">Ngamakosso</option>
-            <option value="mikalou">Mikalou</option>
-            <option value="massengo">Massengo</option>
-          </select>
-        </div>
+ <section class="property-search">
 
-        <div class="col-md-3 col-sm-6">
-          <label>Type de bien</label>
-          <select>
-            <option value="" selected="selected"> Tous </option>
-            <option value=""> Commercial </option>
-            <option value=""> Bureau </option>
-            <option value=""> Location </option>
-            <option value=""> Résidentiel </option>
-            <option value=""> Appartement </option>
-            <option value=""> Villa </option>
-          </select>
-        </div>
-  
-        
-        <div class="col-md-3 col-sm-6">
-          <label>Statut du bien</label>
-          <select>
-            <option value="" selected="selected"> Tous </option>
-            <option value=""> À louer </option>
-            <option value=""> À vendre </option>
-          </select>
-        </div>
-  
-        
-        <div class="clearfix"></div>
-        <div class="col-divider-margin-1"></div>
-        <div class="col-md-2 col-sm-6">
-          <label>Chambres</label>
-          <select>
-            <option value="" selected="selected"> Toutes </option>
-            <option value=""> 1 </option>
-            <option value=""> 2 </option>
-            <option value=""> 3 </option>
-            <option value=""> 4 </option>
-          </select>
-        </div>
-  
-        
-        <div class="col-md-2 col-sm-6">
-          <label>Salles de bain min.</label>
-          <select>
-            <option value="" selected="selected"> Toutes </option>
-            <option value=""> 1 </option>
-            <option value=""> 2 </option>
-            <option value=""> 3 </option>
-            <option value=""> 4 </option>
-          </select>
-        </div>
+  <div class="col-md-3 col-sm-6">
+    <label>Nom complet</label>
+    <input type="text" placeholder="Nom" name="name">
+  </div>
 
-        <div class="col-md-2 col-sm-6">
-          <label>Prix minimum</label>
-          <input type="text" placeholder="FCFA" value="" name="prix_mini">
-        </div>
+  <div class="col-md-3 col-sm-6">
+    <label>Localisation</label>
+    <select name="localisation">
+      <option value="" selected="selected">Tous</option>
+      <option value="Centre-ville">Centre-ville</option>
+      <option value="Poto-Poto">Poto-Poto</option>
+      <option value="Makélékélé">Makélékélé</option>
+      <option value="Bacongo">Bacongo</option>
+      <option value="Ouenzé">Ouenzé</option>
+      <option value="Talangaï">Talangaï</option>
+      <option value="Mfilou">Mfilou</option>
+      <option value="Moungali">Moungali</option>
+      <option value="Djiri">Djiri</option>
+      <option value="Mayanga">Mayanga</option>
+      <option value="Kintélé">Kintélé</option>
+      <option value="Mpila">Mpila</option>
+      <option value="Makabandilou">Makabandilou</option>
+      <option value="Ngamakosso">Ngamakosso</option>
+      <option value="Mikalou">Mikalou</option>
+      <option value="Massengo">Massengo</option>
+    </select>
+  </div>
 
-        <div class="col-md-2 col-sm-6">
-          <label>Prix maximal</label>
-          <input type="text" placeholder="FCFA" value="" name="prix_max">
-        </div>
-        
-        <div class="col-md-2 col-sm-6">
-          <label>Surface (m²)</label>
-          <br/>
-          <input type="text" value="" name="Area">
-        </div>
-  
-        <div class="col-md-2 col-sm-6"> <br/>
-          <input class="search-btn" type="submit" value="Faire la demande">
-        </div>
-   
-        
-      </div>
-    </div>
-  </section>
+  <div class="col-md-3 col-sm-6">
+    <label>Type de bien</label>
+    <select name="type_bien">
+      <option value="" selected="selected">Tous</option>
+      <option value="Commercial">Commercial</option>
+      <option value="Bureau">Bureau</option>
+      <option value="Location">Location</option>
+      <option value="Résidentiel">Résidentiel</option>
+      <option value="Appartement">Appartement</option>
+      <option value="Villa">Villa</option>
+    </select>
+  </div>
+
+  <div class="col-md-3 col-sm-6">
+    <label>Statut du bien</label>
+    <select name="statut">
+      <option value="" selected="selected">Tous</option>
+      <option value="À louer">À louer</option>
+      <option value="À vendre">À vendre</option>
+    </select>
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="col-divider-margin-1"></div>
+
+  <div class="col-md-2 col-sm-6">
+    <label>Chambres</label>
+    <select name="chambres">
+      <option value="" selected="selected">Sans</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+  </div>
+
+  <div class="col-md-2 col-sm-6">
+    <label>Salles de bain min.</label>
+    <select name="bains">
+      <option value="" selected="selected">Sans</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+
+    </select>
+  </div>
+
+  <div class="col-md-2 col-sm-6">
+    <label>Prix minimum</label>
+    <input type="text" placeholder="FCFA" name="prix_mini">
+  </div>
+
+  <div class="col-md-2 col-sm-6">
+    <label>Prix maximal</label>
+    <input type="text" placeholder="FCFA" name="prix_max">
+  </div>
+
+  <div class="col-md-2 col-sm-6">
+    <label>Surface (m²)</label>
+    <br/>
+    <input type="text" name="surface">
+  </div>
+
+  <div class="col-md-2 col-sm-6"><br/>
+    <input class="search-btn" type="button" value="Faire la demande" onclick="envoyerWhatsApp()">
+  </div>
+
+</section>
+
+<script>
+function envoyerWhatsApp() {
+    let nom = document.querySelector('[name="name"]').value.trim();
+    let localisation = document.querySelector('[name="localisation"]').value.trim();
+    let typeBien = document.querySelector('[name="type_bien"]').value.trim();
+    let statut = document.querySelector('[name="statut"]').value.trim();
+    let chambres = document.querySelector('[name="chambres"]').value.trim();
+    let bains = document.querySelector('[name="bains"]').value.trim();
+    let prixMini = document.querySelector('[name="prix_mini"]').value.trim();
+    let prixMax = document.querySelector('[name="prix_max"]').value.trim();
+    let surface = document.querySelector('[name="surface"]').value.trim();
+
+    // Vérifier si un champ est vide
+    if (!nom || !localisation || !typeBien || !statut || !chambres || !bains || !prixMini || !prixMax || !surface) {
+        alert("⚠️ Veuillez remplir toutes les informations avant d'envoyer la demande !");
+        return; // Empêche l'envoi
+    }
+
+    let message = `*Nouvelle demande immobilière*%0A` +
+                  `Nom complet : ${nom}%0A` +
+                  `Localisation : ${localisation}%0A` +
+                  `Type de bien : ${typeBien}%0A` +
+                  `Statut : ${statut}%0A` +
+                  `Chambres : ${chambres}%0A` +
+                  `Salles de bain : ${bains}%0A` +
+                  `Prix minimum : ${prixMini} FCFA%0A` +
+                  `Prix maximum : ${prixMax} FCFA%0A` +
+                  `Surface : ${surface} m²`;
+
+    let numero = "242068005449";
+    window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
+}
+</script>
+
+
 
   <!-- end section -->
 <div class="clearfix"></div>  
