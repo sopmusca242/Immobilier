@@ -286,27 +286,52 @@ function envoyerWhatsApp() {
     let prixMax = document.querySelector('[name="prix_max"]').value.trim();
     let surface = document.querySelector('[name="surface"]').value.trim();
 
-    // Vérifier si un champ est vide
+    // Vérification des champs
     if (!nom || !localisation || !typeBien || !statut || !chambres || !bains || !prixMini || !prixMax || !surface) {
         alert("Veuillez remplir toutes les informations avant d'envoyer la demande !");
-        return; // Empêche l'envoi
+        return;
     }
 
-    let message = `*Nouvelle demande immobilière*%0A` +
-                  `Nom complet : ${nom}%0A` +
-                  `Localisation : ${localisation}%0A` +
-                  `Type de bien : ${typeBien}%0A` +
-                  `Statut : ${statut}%0A` +
-                  `Chambres : ${chambres}%0A` +
-                  `Salles de bain : ${bains}%0A` +
-                  `Prix minimum : ${prixMini} FCFA%0A` +
-                  `Prix maximum : ${prixMax} FCFA%0A` +
-                  `Surface : ${surface} m²`;
+    // Vérification logique des prix
+    let min = parseFloat(prixMini);
+    let max = parseFloat(prixMax);
+    if (isNaN(min) || isNaN(max)) {
+        alert("Veuillez saisir des valeurs numériques pour les prix !");
+        return;
+    }
+    if (max < min) {
+        alert("Le prix maximum doit être supérieur ou égal au prix minimum !");
+        return;
+    }
+
+    // Date et heure
+    let date = new Date();
+    let optionsDate = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    let optionsHeure = { hour: '2-digit', minute: '2-digit' };
+    let dateFormat = date.toLocaleDateString('fr-FR', optionsDate);
+    let heureFormat = date.toLocaleTimeString('fr-FR', optionsHeure);
+
+    // Message formaté avec espaces partout
+    let message = `*NOUVELLE DEMANDE IMMOBILIÈRE*%0A` +
+                  `──────────────────────────────%0A%0A` +
+                  `*Date de la demande:* ${dateFormat} à ${heureFormat}%0A%0A` +
+                  `*Nom complet:* ${nom}%0A%0A` +
+                  `*Localisation:* ${localisation}%0A%0A` +
+                  `*Type de bien:* ${typeBien}%0A%0A` +
+                  `*Statut:* ${statut}%0A%0A` +
+                  `*Chambres:* ${chambres}%0A%0A` +
+                  `*Salles de bain:* ${bains}%0A%0A` +
+                  `*Prix minimum:* ${prixMini} FCFA%0A%0A` +  // espace ajouté ici
+                  `*Prix maximum:* ${prixMax} FCFA%0A%0A` +
+                  `*Surface:* ${surface} m²%0A%0A` +
+                  `──────────────────────────────%0A` +
+                  `_Merci de traiter cette demande rapidement._`;
 
     let numero = "242068005449";
     window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
 }
 </script>
+
 
 
 <div class="clearfix"></div>  
@@ -437,8 +462,11 @@ function envoyerWhatsApp() {
               </div>
             </div>
 
+          
+
           </div>
         </div>
+        
 </section>
 
 
@@ -533,8 +561,8 @@ function envoyerWhatsApp() {
             <div class="feature-box-66">
               <div class="image-holder"> <a href="#">
                 <div class="status">À Louer</div>
-                <div class="price">3 500 000 FCFA <span>/ Mois</span></div>
-                <img src="https://via.placeholder.com/390x230?text=Villa+Centre-Ville+Brazzaville" alt="" class="img-responsive"/></a> </div>
+                <div class="price">500 000 FCFA <span>/ Mois</span></div>
+                <img src="images/centre_ville_bz.jpg" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Villa Moderne au Centre-Ville</a></h5>
                 <span>Brazzaville, Plateau des 15 ans</span>
@@ -552,8 +580,8 @@ function envoyerWhatsApp() {
             <div class="feature-box-66">
               <div class="image-holder"> <a href="#">
                 <div class="status">À Vendre</div>
-                <div class="price">85 000 000 FCFA</div>
-                <img src="https://via.placeholder.com/390x230?text=Maison+Poto-Poto" alt="" class="img-responsive"/></a> </div>
+                <div class="price">18 000 000 FCFA</div>
+                <img src="" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Maison Familiale</a></h5>
                 <span>Poto-Poto, Brazzaville</span>
@@ -571,8 +599,8 @@ function envoyerWhatsApp() {
             <div class="feature-box-66">
               <div class="image-holder"> <a href="#">
                 <div class="status">À Louer</div>
-                <div class="price">1 200 000 FCFA <span>/ Mois</span></div>
-                <img src="https://via.placeholder.com/390x230?text=Appartement+Talangai" alt="" class="img-responsive"/></a> </div>
+                <div class="price">200 000 FCFA <span>/ Mois</span></div>
+                <img src="images/appartement_brazza.jpg" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Appartement Meublé</a></h5>
                 <span>Talangai, Brazzaville</span>
@@ -593,7 +621,7 @@ function envoyerWhatsApp() {
               <div class="image-holder"> <a href="#">
                 <div class="status">À Vendre</div>
                 <div class="price">150 000 000 FCFA</div>
-                <img src="https://via.placeholder.com/390x230?text=Villa+Oyo" alt="" class="img-responsive"/></a> </div>
+                <img src="images/villa_oyo.jpg" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Villa de Luxe avec Piscine</a></h5>
                 <span>Oyo, Département de la Cuvette</span>
@@ -612,7 +640,7 @@ function envoyerWhatsApp() {
               <div class="image-holder"> <a href="#">
                 <div class="status">À Louer</div>
                 <div class="price">800 000 FCFA <span>/ Mois</span></div>
-                <img src="https://via.placeholder.com/390x230?text=Studio+Moungali" alt="" class="img-responsive"/></a> </div>
+                <img src="images/studio_brazza.jpg" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Studio Moderne</a></h5>
                 <span>Moungali, Brazzaville</span>
@@ -631,7 +659,7 @@ function envoyerWhatsApp() {
               <div class="image-holder"> <a href="#">
                 <div class="status">À Vendre</div>
                 <div class="price">60 000 000 FCFA</div>
-                <img src="https://via.placeholder.com/390x230?text=Maison+Kinkala" alt="" class="img-responsive"/></a> </div>
+                <img src="images/maison_brazza.jpg" alt="" class="img-responsive"/></a> </div>
               <div class="text-box-inner">
                 <h5 class="less-mar1"><a href="#">Maison de Campagne</a></h5>
                 <span>Kinkala, Département du Pool</span>
@@ -785,10 +813,10 @@ function envoyerWhatsApp() {
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
-              <img src="http://placehold.it/450x550" alt="" class="img-responsive"/> 
+              <img src="images/agents.jpg" alt="" class="img-responsive"/> 
             </div>
             <div class="content-box less-pading text-center">
-              <h5 class="nomargin title">Jean-Baptiste Mavoungou</h5>
+              <h5 class="nomargin title">Emmanuel 01</h5>
               <h6 class="text-green-3 nopadding">Agent Senior</h6>
               <br/>
               <p>Spécialiste en ventes de villas et immeubles à Brazzaville depuis plus de 15 ans.</p>
@@ -796,8 +824,8 @@ function envoyerWhatsApp() {
           </div>
         </div>
 
-        <div class="col-md-3 col-sm-6">
-          <div class="team-holder13 bmargin active">
+         <div class="col-md-3 col-sm-6">
+          <div class="team-holder13 bmargin">
             <div class="img-holder">
               <div class="icon-box text-center">
                 <ul class="social-icons-1">
@@ -806,18 +834,16 @@ function envoyerWhatsApp() {
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
-              <img src="http://placehold.it/450x550" alt="" class="img-responsive"/> 
+              <img src="images/agents.jpg" alt="" class="img-responsive"/> 
             </div>
             <div class="content-box less-pading text-center">
-              <h5 class="nomargin title">Clarisse N’Dinga</h5>
+              <h5 class="nomargin title">Emmanuel 02</h5>
               <h6 class="text-green-3 nopadding">Agent Immobilier</h6>
               <br/>
               <p>Experte en locations haut standing dans les quartiers Plateau des 15 ans et Poto-Poto.</p>
             </div>
           </div>
         </div>
-
-  
         
         <div class="col-md-3 col-sm-6">
           <div class="team-holder13 bmargin">
@@ -829,18 +855,16 @@ function envoyerWhatsApp() {
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
-              <img src="http://placehold.it/450x550" alt="" class="img-responsive"/> 
+              <img src="images/agents.jpg" alt="" class="img-responsive"/> 
             </div>
             <div class="content-box less-pading text-center">
-              <h5 class="nomargin title">Benjamin Boukaka</h5>
-              <h6 class="text-green-3 nopadding">Agent Senior</h6>
+              <h5 class="nomargin title">Emmanuel 03</h5>
+              <h6 class="text-green-3 nopadding">Agent Immobilier</h6>
               <br/>
-              <p>Connaissance approfondie du marché immobilier à Pointe-Noire et dans le Pool.</p>
+              <p>Passionné par la mise en valeur des terrains et propriétés en zone urbaine et rurale.</p>
             </div>
           </div>
         </div>
-
-        
         <div class="col-md-3 col-sm-6">
           <div class="team-holder13 bmargin">
             <div class="img-holder">
@@ -851,10 +875,10 @@ function envoyerWhatsApp() {
                   <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
               </div>
-              <img src="http://placehold.it/450x550" alt="" class="img-responsive"/> 
+              <img src="images/agents.jpg" alt="" class="img-responsive"/> 
             </div>
             <div class="content-box less-pading text-center">
-              <h5 class="nomargin title">Christophe Mabiala</h5>
+              <h5 class="nomargin title">Emmanuel 04</h5>
               <h6 class="text-green-3 nopadding">Agent Immobilier</h6>
               <br/>
               <p>Passionné par la mise en valeur des terrains et propriétés en zone urbaine et rurale.</p>
@@ -882,7 +906,7 @@ function envoyerWhatsApp() {
                 <p>Grâce à l’agence, j’ai trouvé la maison parfaite en moins de deux semaines. L’équipe est professionnelle, à l’écoute et toujours disponible pour répondre à mes questions.</p>
               </div>
               <div class="col-md-12 col-sm-12 col-xs-12 text-left nopadding">
-                <div class="iconbox-medium round left overflow-hidden"><img src="http://placehold.it/110x110" alt=""/></div>
+                <div class="iconbox-medium round left overflow-hidden"><img src="images/110.jpg" alt=""/></div>
                 <h5 class="less-mar1">Elizabeth</h5>
                 <span>Mediatricks - Manager</span> </div>
               
@@ -894,7 +918,7 @@ function envoyerWhatsApp() {
                 <p>Grâce à l’agence, j’ai trouvé la maison parfaite en moins de deux semaines. L’équipe est professionnelle, à l’écoute et toujours disponible pour répondre à mes questions.</p>
               </div>
               <div class="col-md-12 col-sm-12 col-xs-12 text-left nopadding">
-                <div class="iconbox-medium round left overflow-hidden"><img src="http://placehold.it/110x110" alt=""/></div>
+                <div class="iconbox-medium round left overflow-hidden"><img src="images/110.jpg" alt=""/></div>
                 <h5 class="less-mar1">Elizabeth</h5>
                 <span>Mediatricks - Manager</span> </div>
               
@@ -1060,7 +1084,7 @@ function envoyerWhatsApp() {
   <section class="section-copyrights sec-moreless-padding">
     <div class="container">
       <div class="row">
-        <div class="col-md-12"> <span>Copyright © 2020 <a href="">hasta</a> By <a href="">Codelayers</a> | All rights reserved.</span></div>
+        <div class="col-md-12"> <span>Copyright © 2026 <a href="">BANIETIKA</a> Emmanuel <a href="">Francis</a> | All rights reserved.</span></div>
       </div>
     </div>
   </section>
