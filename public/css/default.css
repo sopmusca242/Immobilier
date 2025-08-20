@@ -5682,6 +5682,374 @@ div.demo .title span {
 
 
 
+.site-heading {
+	margin-bottom: 50px;
+}
+
+.site-heading h2 {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #2c3e50;
+	margin-bottom: 15px;
+}
+
+.site-heading span {
+	color: #3498db;
+}
+
+.site-heading h4 {
+	color: #7f8c8d;
+	font-weight: 300;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.news-grid {
+	position: relative;
+	overflow: hidden;
+	height: 600px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.news-card {
+	background: white;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+	overflow: hidden;
+	transition: all 0.5s ease;
+	position: absolute;
+	height: 550px;
+	width: 400px;
+	opacity: 0;
+	transform: translateX(100%) scale(0.8);
+	z-index: 1;
+}
+
+.news-card.active {
+	opacity: 1;
+	transform: translateX(0) scale(1);
+	z-index: 3;
+}
+
+.news-card.prev {
+	opacity: 0.6;
+	transform: translateX(-50%) scale(0.9);
+	z-index: 2;
+}
+
+.news-card.next {
+	opacity: 0.6;
+	transform: translateX(50%) scale(0.9);
+	z-index: 2;
+}
+
+.news-card:hover {
+	transform: translateY(-10px) scale(1.02);
+	box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.news-card.active:hover {
+	transform: translateX(0) translateY(-10px) scale(1.02);
+}
+
+.news-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, #3498db, #0f2b47, #0f2b47);
+	z-index: 1;
+}
+
+.news-content {
+	padding: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.sector-image {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 0;
+}
+
+.news-category {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: #3498db;
+	color: white;
+	padding: 5px 15px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: bold;
+	z-index: 2;
+}
+
+.news-title {
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: #2c3e50;
+	margin: 20px 20px 15px;
+	line-height: 1.4;
+}
+
+.news-excerpt {
+	color: #7f8c8d;
+	line-height: 1.6;
+	margin: 0 20px;
+	flex-grow: 1;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+}
+
+.news-meta {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #ecf0f1;
+	margin-top: auto;
+}
+
+.news-date {
+	font-size: 0.9rem;
+	color: #95a5a6;
+	font-weight: bold;
+}
+
+.news-author {
+	font-size: 0.8rem;
+	color: #bdc3c7;
+	margin-top: 2px;
+}
+
+.read-more-btn {
+	background: #3498db;
+	color: white;
+	border: none;
+	padding: 8px 20px;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-weight: bold;
+	transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+	background: #2980b9;
+	transform: translateY(-2px);
+}
+
+/* Indicateurs de navigation */
+.carousel-indicators {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	gap: 10px;
+}
+
+.indicator {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #bdc3c7;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.indicator.active {
+	background: #3498db;
+	transform: scale(1.2);
+}
+
+/* Contrôles de navigation */
+.carousel-controls {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(52, 152, 219, 0.8);
+	color: white;
+	border: none;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 1.2rem;
+	transition: all 0.3s ease;
+	z-index: 10;
+}
+
+.carousel-controls:hover {
+	background: rgba(52, 152, 219, 1);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+	left: 20px;
+}
+
+.next-btn {
+	right: 20px;
+}
+
+/* Ticker d'actualités */
+.ticker-content1 {
+	background: #2c3e50;
+	color: white;
+	padding: 15px 0;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+}
+
+.ticker-item {
+	display: inline-block;
+	padding-right: 100px;
+	animation: ticker 30s linear infinite;
+}
+
+@keyframes ticker {
+	0% { transform: translateX(100%); }
+	100% { transform: translateX(-100%); }
+}
+
+.fade-in-up {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in-up.visible {
+	opacity: 1;
+	transform: translateY(0);
+  }
+
+
+
+
+
+.property-link {
+	display: block;
+	position: relative;
+	z-index: 1;
+  }
+  
+  .carousel-container {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	z-index: 2; /* Au-dessus du lien principal */
+  }
+  
+  .carousel-track {
+	display: flex;
+	transition: transform 0.3s ease;
+	height: 100%;
+  }
+  
+  .carousel-slide {
+	min-width: 100%;
+	height: 100%;
+  }
+  
+  .carousel-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	cursor: pointer; /* Indique que l'image est cliquable */
+  }
+  
+  .carousel-nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0,0,0,0.5);
+	color: white;
+	border: none;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 16px;
+	z-index: 20; /* Très haut pour être au-dessus de tout */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.3s ease;
+  }
+  
+  .carousel-nav:hover {
+	background: rgba(0,0,0,0.8);
+	transform: translateY(-50%) scale(1.1);
+  }
+  
+  .carousel-prev {
+	left: 10px;
+  }
+  
+  .carousel-next {
+	right: 10px;
+  }
+  
+  .carousel-indicators {
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 5px;
+	z-index: 20; /* Très haut pour être au-dessus de tout */
+  }
+  
+  .indicator {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.5);
+	cursor: pointer;
+	transition: all 0.3s ease;
+  }
+  
+  .indicator:hover {
+	background: rgba(255,255,255,0.8);
+	transform: scale(1.2);
+  }
+  
+  .indicator.active {
+	background: white;
+	transform: scale(1.1);
+  }
+  
+  /* S'assurer que les éléments status et price restent visibles */
+  .status,
+  .price {
+	position: absolute;
+	z-index: 15;
+	pointer-events: none; /* Permet de cliquer à travers */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
